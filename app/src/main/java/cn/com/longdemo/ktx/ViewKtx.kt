@@ -2,6 +2,7 @@ package cn.com.longdemo.ktx
 
 import android.app.Activity
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -32,4 +33,5 @@ fun <ViewT : View> View.bindView(@IdRes idRes: Int): Lazy<ViewT> {
     return lazy(LazyThreadSafetyMode.NONE) {
         findViewById<ViewT>(idRes)
     }
+
 }

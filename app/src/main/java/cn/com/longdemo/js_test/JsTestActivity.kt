@@ -8,7 +8,6 @@ import cn.com.longdemo.R
 import cn.com.longdemo.ktx.bindView
 import com.google.android.material.snackbar.Snackbar
 import com.gzsll.jsbridge.WVJBWebView
-import com.gzsll.jsbridge.WVJBWebView.WVJBResponseCallback
 import com.gzsll.jsbridge.WVJBWebViewClient
 
 
@@ -31,13 +30,14 @@ class JsTestActivity : AppCompatActivity() {
         }
 
         btn.setOnClickListener {
-            webView.callHandler("testJavascriptHandler",
-                "{\"greetingFromJava\": \"Hi there, JS!\" }"
+            webView.callHandler(
+                "testJavascriptHandler", "{\"greetingFromJava\": \"Hi there, JS!\" }"
             ) { data ->
                 //callback被js回调
-                Snackbar.make(webView, "Js回调Java的callback", Snackbar.LENGTH_SHORT).setAction("action") {
+                Snackbar.make(webView, "Js回调Java的callback", Snackbar.LENGTH_SHORT)
+                    .setAction("action") {
 
-                }.show()
+                    }.show()
             }
         }
 

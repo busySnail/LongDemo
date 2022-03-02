@@ -11,9 +11,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import cn.com.longdemo.annotations.HideInMainActivity
 import cn.com.longdemo.ui.theme.LongDemoTheme
 import cn.com.native_lib.NativeLib
 
+@HideInMainActivity
 class ComposeTestActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
