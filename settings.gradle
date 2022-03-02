@@ -19,3 +19,4 @@ dependencyResolutionManagement {
 rootProject.name = "LongDemo"
 include ':app'
 include ':native_lib'
+include ':Module_Design_Pattern'
