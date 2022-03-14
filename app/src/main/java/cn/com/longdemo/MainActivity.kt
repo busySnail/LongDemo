@@ -7,12 +7,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.com.longdemo.annotations.HideInMainActivity
 import cn.com.longdemo.ktx.bindView
+import cn.com.longdemo.ktx.plusAssign
 import cn.com.native_lib.NativeLib
 import com.aesean.activitystack.view.recyclerview.ListAdapter
 
@@ -28,6 +30,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val datas = MutableLiveData<ArrayList<String>>()
+        datas.value = arrayListOf("xx", "aa")
+
+        datas += mutableListOf("ee")
+
+        Log.d("TestML", "onCreate: datas: ${datas.value}")
+
         recyclerView.apply {
             layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
             addItemDecoration(
