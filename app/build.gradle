@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-android'
+    id 'androidx.benchmark'
 }
 
 android {
@@ -14,7 +15,7 @@ android {
     defaultConfig {
         applicationId "cn.com.longdemo"
         minSdk 21
-        targetSdk 32
+        targetSdk 30
         versionCode 1
         versionName "1.0"
 
@@ -90,4 +91,9 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     implementation 'com.gzsll.jsbridge:library:1.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.0-beta02'
+
+    implementation "androidx.work:work-runtime-ktx:2.5.0"
+    implementation "androidx.startup:startup-runtime:1.0.0"
+
+
 }
