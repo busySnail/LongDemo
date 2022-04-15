@@ -7,7 +7,6 @@
         <variable
             name="userInfo"
             type="cn.com.longdemo.databinding.DatabindingTestActivity.PersonModel" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,9 +17,9 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:hint="name"
             android:text="@{userInfo.nameOb}"
             android:textColor="#000000"
-            android:hint="name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.3"
@@ -32,9 +31,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:hint="age"
             android:text="@{userInfo.ageOb}"
             android:textColor="#000000"
-            android:hint="age"
             app:layout_constraintBottom_toBottomOf="@id/name"
             app:layout_constraintStart_toEndOf="@id/name"
             app:layout_constraintTop_toTopOf="@id/name" />

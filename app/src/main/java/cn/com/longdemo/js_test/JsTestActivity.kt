@@ -2,23 +2,33 @@ package cn.com.longdemo.js_test
 
 import android.os.Bundle
 import android.webkit.WebView
-import android.widget.Button
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import cn.com.longdemo.R
-import cn.com.longdemo.ktx.bindView
+import androidx.lifecycle.Observer
+import cn.com.longdemo.databinding.JsTestActivityBinding
 import com.google.android.material.snackbar.Snackbar
 import com.gzsll.jsbridge.WVJBWebView
 import com.gzsll.jsbridge.WVJBWebViewClient
 
 
 class JsTestActivity : AppCompatActivity() {
-    private val btn by bindView<Button>(R.id.btn)
-    private val webView by bindView<WVJBWebView>(R.id.webView)
+    private lateinit var binding: JsTestActivityBinding
+    private val viewModel: JsTestViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.js_test_activity)
-        webView.apply {
+        binding = JsTestActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        viewModel.counterLivaData.observe(this) {
+            binding.timer.text = "计数器:$it"
+        }
+
+        viewModel.isCounting.observe(this, Observer {
+
+        })
+
+        binding.webView.apply {
             loadUrl("file:///android_asset/ExampleApp.html")
             webViewClient = CustomWebViewClient(this)
 
@@ -27,22 +37,29 @@ class JsTestActivity : AppCompatActivity() {
 
                 }.show()
             }
+
+            registerHandler("startTimer") { data, callback ->
+                viewModel.startCounter()
+            }
+
+            registerHandler("stopTimer") { data, callback ->
+                viewModel.stopCounter()
+            }
         }
 
-        btn.setOnClickListener {
-            webView.callHandler(
+        binding.btn.setOnClickListener {
+            binding.webView.callHandler(
                 "testJavascriptHandler", "{\"greetingFromJava\": \"Hi there, JS!\" }"
             ) { data ->
                 //callback被js回调
-                Snackbar.make(webView, "Js回调Java的callback", Snackbar.LENGTH_SHORT)
+                Snackbar.make(binding.webView, "Js回调Java的callback", Snackbar.LENGTH_SHORT)
                     .setAction("action") {
 
                     }.show()
             }
         }
-
-
     }
+
 
     class CustomWebViewClient(webView: WVJBWebView?) : WVJBWebViewClient(webView) {
         override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
@@ -51,4 +68,5 @@ class JsTestActivity : AppCompatActivity() {
             return super.shouldOverrideUrlLoading(view, url)
         }
     }
+
 }

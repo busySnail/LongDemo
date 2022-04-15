@@ -80,10 +80,7 @@ class MainActivity : AppCompatActivity() {
 
         //Build Config
         Log.d(TAG, "onCreate: " + BuildConfig.TEST_FIELD)
-        // native test
-        NativeLib().startDownload {
-            Log.d(TAG, "onCreate: $it")
-        }
+
 
     }
 
