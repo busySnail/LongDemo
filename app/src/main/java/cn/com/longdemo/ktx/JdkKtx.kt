@@ -31,3 +31,9 @@ operator fun <T> MutableLiveData<ArrayList<T>>.minusAssign(item: T) {
     value.remove(item)
     this.value = value
 }
+
+operator fun <T> MutableLiveData<ArrayList<T>>.minusAssign(values: List<T>) {
+    val value = this.value ?: arrayListOf()
+    value.removeAll(values)
+    this.value = value
+}

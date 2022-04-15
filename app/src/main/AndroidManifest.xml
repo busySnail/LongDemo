@@ -26,8 +26,12 @@
         </activity>
         <activity
             android:name=".js_test.JsTestActivity"
-            android:label="JsTestActivity"
-            android:exported="false"/>
+            android:exported="false"
+            android:label="JsTestActivity" />
+        <activity
+            android:name=".databinding.DatabindingTestActivity"
+            android:exported="false" />
+
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
