@@ -1,6 +1,7 @@
 package cn.com.longdemo.js_test
 
 import android.os.Bundle
+import android.util.Log
 import android.webkit.WebView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -9,11 +10,17 @@ import cn.com.longdemo.databinding.JsTestActivityBinding
 import com.google.android.material.snackbar.Snackbar
 import com.gzsll.jsbridge.WVJBWebView
 import com.gzsll.jsbridge.WVJBWebViewClient
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 
 
 class JsTestActivity : AppCompatActivity() {
     private lateinit var binding: JsTestActivityBinding
     private val viewModel: JsTestViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,9 +31,9 @@ class JsTestActivity : AppCompatActivity() {
             binding.timer.text = "计数器:$it"
         }
 
-        viewModel.isCounting.observe(this, Observer {
+        viewModel.isCounting.observe(this) {
 
-        })
+        }
 
         binding.webView.apply {
             loadUrl("file:///android_asset/ExampleApp.html")
@@ -68,5 +75,7 @@ class JsTestActivity : AppCompatActivity() {
             return super.shouldOverrideUrlLoading(view, url)
         }
     }
+
+
 
 }

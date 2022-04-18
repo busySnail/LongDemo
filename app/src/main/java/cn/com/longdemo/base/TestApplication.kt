@@ -6,6 +6,5 @@ import android.util.Log
 class ReleaseApplication:Application() {
     override fun onCreate() {
         super.onCreate()
-        Log.d("TestML", "app-release-onCreate: ")
     }
 }

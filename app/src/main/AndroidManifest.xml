@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="cn.com.longdemo">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
         android:name=".base.${application_name}"
         android:allowBackup="true"
@@ -11,6 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LongDemo">
+
         <activity
             android:name=".native_test.NativeTestActivity"
             android:exported="false"

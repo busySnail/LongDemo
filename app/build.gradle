@@ -1,3 +1,8 @@
+import cn.com.buildsrc.BuildConfig
+import cn.com.buildsrc.Compose
+import cn.com.buildsrc.Retrofit
+import cn.com.buildsrc.Versions
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
@@ -16,13 +21,12 @@ android {
         dataBinding true
     }
 
-
-    compileSdk 32
+    compileSdk BuildConfig.compileSdkVersion
 
     defaultConfig {
         applicationId "cn.com.longdemo"
-        minSdk 21
-        targetSdk 30
+        minSdk BuildConfig.minSdkVersion
+        targetSdk BuildConfig.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -71,7 +75,7 @@ android {
         viewBinding true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerExtensionVersion Versions.compose
     }
     packagingOptions {
         resources {
@@ -87,18 +91,18 @@ dependencies {
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation project(':native_lib')
-    implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.material:material:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
     implementation 'androidx.activity:activity-compose:1.4.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    implementation project(path: ':lib_base')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+
     implementation 'com.gzsll.jsbridge:library:1.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
@@ -107,8 +111,17 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
 
+    implementation Retrofit.runtime
+    implementation Retrofit.gson
+    implementation Retrofit.logging
 
-    // kapt "com.android.databinding:compiler:3.1.4"
+    implementation Compose.ui
+    implementation Compose.material
+    implementation Compose.ui_tooling_preview
+    implementation Compose.ui_test_junit4
+    implementation Compose.ui_tooling
+
+    //  Compose.ui_tooling_preview
 
 
 }
