@@ -48,6 +48,14 @@ object AndroidX {
     const val appStartup = "androidx.startup:startup-runtime:${Versions.appStartup}"
 }
 
+
+object Hilt {
+    const val daggerRuntime = "com.google.dagger:hilt-android:${Versions.hit}"
+    const val daggerCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hit}"
+    const val viewModule = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hitViewModule}"
+    const val compiler = "androidx.hilt:hilt-compiler:${Versions.hitViewModule}"
+}
+
 object Retrofit {
     const val runtime = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val gson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"

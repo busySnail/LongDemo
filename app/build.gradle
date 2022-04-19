@@ -1,7 +1,5 @@
-import cn.com.buildsrc.BuildConfig
-import cn.com.buildsrc.Compose
-import cn.com.buildsrc.Retrofit
-import cn.com.buildsrc.Versions
+import cn.com.buildsrc.*
+
 
 plugins {
     id 'com.android.application'
@@ -9,6 +7,7 @@ plugins {
     id 'kotlin-android'
     id 'androidx.benchmark'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -122,6 +121,13 @@ dependencies {
     implementation Compose.ui_tooling
 
     //  Compose.ui_tooling_preview
+
+
+    implementation Hilt.daggerRuntime
+    kapt Hilt.daggerCompiler
+//
+    //implementation Hilt.viewModule
+    //kapt Hilt.compiler
 
 
 }
