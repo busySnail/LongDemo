@@ -9,7 +9,7 @@ object Versions {
     const val constraintlayout = "2.0.4"
     const val paging = "3.0.0-alpha02"
     const val timber = "4.7.1"
-    const val kotlin = "1.4.20"
+    const val kotlin = "1.6.10"
     const val kotlinCoroutinesCore = "1.3.7"
     const val kotlinCoroutinesAndrid = "1.3.6"
     const val koin = "2.1.5"
@@ -46,6 +46,11 @@ object AndroidX {
     const val swiperefreshlayout =
         "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swiperefreshlayout}"
     const val appStartup = "androidx.startup:startup-runtime:${Versions.appStartup}"
+}
+
+object Kotlin {
+    const val kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
+    const val kotlin_reflect = "org.jetbrains.kotlin:kotlin-reflect:${Versions.kotlin}"
 }
 
 

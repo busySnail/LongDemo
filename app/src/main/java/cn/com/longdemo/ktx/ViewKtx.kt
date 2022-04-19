@@ -33,5 +33,12 @@ fun <ViewT : View> View.bindView(@IdRes idRes: Int): Lazy<ViewT> {
     return lazy(LazyThreadSafetyMode.NONE) {
         findViewById<ViewT>(idRes)
     }
+}
 
+fun View.toVisible() {
+    this.visibility = View.VISIBLE
+}
+
+fun View.toGone() {
+    this.visibility = View.GONE
 }

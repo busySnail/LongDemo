@@ -1,4 +1,4 @@
-package cn.com.longdemo.stocks.new_stock
+package cn.com.longdemo.stocks.test
 
 import android.annotation.SuppressLint
 import cn.com.longdemo.base.SslUtils

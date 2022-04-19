@@ -1,4 +1,4 @@
-package cn.com.longdemo.stocks.new_stock
+package cn.com.longdemo.stocks.test
 
 import retrofit2.Response
 import retrofit2.http.GET

@@ -8,6 +8,7 @@ plugins {
     id 'androidx.benchmark'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -63,11 +64,11 @@ android {
 
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = JavaVersion.VERSION_1_8
     }
     buildFeatures {
         compose true
@@ -110,6 +111,9 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
 
+    implementation Kotlin.kotlin_stdlib
+    implementation Kotlin.kotlin_reflect
+
     implementation Retrofit.runtime
     implementation Retrofit.gson
     implementation Retrofit.logging
@@ -124,10 +128,10 @@ dependencies {
 
 
     implementation Hilt.daggerRuntime
-    kapt Hilt.daggerCompiler
+    kaptAndroidTest Hilt.daggerCompiler
 //
     //implementation Hilt.viewModule
-    //kapt Hilt.compiler
+    kapt Hilt.compiler
 
 
 }
