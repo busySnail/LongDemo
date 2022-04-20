@@ -5,11 +5,11 @@ import cn.com.longdemo.base.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import org.json.JSONObject
-import javax.inject.Inject
 
-class StocksRepositoryImpl @Inject constructor() : StocksRepository {
 
-    override suspend fun fetchNewStock(date:String): Flow<Resource<List<NewStock?>>> {
+class StocksRepositoryImpl : StocksRepository {
+
+    override suspend fun fetchNewStock(date: String): Flow<Resource<List<NewStock>>> {
         return flow {
             try {
                 val response = NetworkManager.stocksService.fetchNewStockList(date)

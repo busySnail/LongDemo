@@ -4,5 +4,5 @@ import cn.com.longdemo.base.Resource
 import kotlinx.coroutines.flow.Flow
 
 interface StocksRepository {
-   suspend fun fetchNewStock(data:String):Flow<Resource<List<NewStock?>>>
+   suspend fun fetchNewStock(data:String):Flow<Resource<List<NewStock>>>
 }

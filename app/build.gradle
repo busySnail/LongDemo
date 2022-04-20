@@ -7,7 +7,7 @@ plugins {
     id 'kotlin-android'
     id 'androidx.benchmark'
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
+   // id 'dagger.hilt.android.plugin'
     id 'kotlin-android-extensions'
 }
 
@@ -68,7 +68,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = '1.8'
     }
     buildFeatures {
         compose true
@@ -127,11 +127,11 @@ dependencies {
     //  Compose.ui_tooling_preview
 
 
-    implementation Hilt.daggerRuntime
-    kaptAndroidTest Hilt.daggerCompiler
+  //  implementation Hilt.daggerRuntime
+  //  kaptAndroidTest Hilt.daggerCompiler
 //
     //implementation Hilt.viewModule
-    kapt Hilt.compiler
+  //  kapt Hilt.compiler
 
 
 }

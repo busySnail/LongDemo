@@ -34,4 +34,5 @@
         item
     </string>
     <string name="title_activity_new_stock">NewStockActivity</string>
+    <string name="title_activity_coroutine_test">CoroutineTestActivity</string>
 </resources>

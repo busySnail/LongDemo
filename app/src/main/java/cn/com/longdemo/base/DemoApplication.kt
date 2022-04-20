@@ -2,7 +2,6 @@ package cn.com.longdemo.base
 
 import android.app.Application
 import cn.com.longdemo.stocks.test.NetworkManager
-import dagger.hilt.android.HiltAndroidApp
 import java.security.SecureRandom
 import java.security.cert.X509Certificate
 import javax.net.ssl.HttpsURLConnection
