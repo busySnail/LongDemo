@@ -5,15 +5,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import cn.com.longdemo.base.BaseFragment
 import cn.com.longdemo.base.Resource
 import cn.com.longdemo.databinding.FragmentFirst2Binding
-import cn.com.longdemo.ktx.*
-import kotlinx.coroutines.*
+import cn.com.longdemo.ktx.observe
+import cn.com.longdemo.ktx.toGone
+import cn.com.longdemo.ktx.toVisible
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -53,7 +54,6 @@ class FirstStockFragment : BaseFragment() {
     }
 
 
-
     override fun onResume() {
         super.onResume()
         Log.d("TestML", "onResume: ")
@@ -90,14 +90,20 @@ class FirstStockFragment : BaseFragment() {
 
     override fun observeViewModel() {
         observe(viewModel.newStockLiveData, ::handleStockList)
-        observeEvent(viewModel.openStockDetails, ::handleOpenDetail)
+        //  observeEvent(viewModel.openStockDetails, ::handleOpenDetail)
+
+        lifecycleScope.launch {
+            viewModel.openStateFlow.collect {
+                handleOpenDetail(it)
+            }
+        }
+
 
     }
 
-    private fun handleOpenDetail(stock: SingleEvent<NewStock>) {
-        stock.getContentIfNotHandled()?.let {
-            Log.d("TestML", "getContentIfNotHandled:  ${stock.peekContent().paperName}")
-        }
+    private fun handleOpenDetail(paperName: String) {
+        Log.d("TestML", "handleOpenDetail: paperName:${paperName}")
+
     }
 
     private fun handleStockList(status: Resource<List<NewStock>>) {
