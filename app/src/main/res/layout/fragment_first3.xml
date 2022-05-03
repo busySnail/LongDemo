@@ -76,4 +76,24 @@
         app:layout_constraintBaseline_toBaselineOf="@id/btn_throttle_test"
         app:layout_constraintStart_toEndOf="@id/btn_throttle_test" />
 
+
+    <Button
+        android:id="@+id/btn_callback_to_coroutine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="callback转协程"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_throttle_test_normal" />
+
+    <Button
+        android:id="@+id/btn_callback_to_flow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="callback转协程"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_callback_to_coroutine" />
 </androidx.constraintlayout.widget.ConstraintLayout>

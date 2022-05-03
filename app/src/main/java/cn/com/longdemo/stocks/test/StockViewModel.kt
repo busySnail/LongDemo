@@ -23,6 +23,7 @@ class StockViewModel : ViewModel() {
     fun fetchNewStocks(date: String) {
         _newStockLiveData.value = Resource.Loading()
         viewModelScope.launch {
+
             repository.fetchNewStock(date).collectLatest {
                 _newStockLiveData.value = it
             }

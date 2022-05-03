@@ -74,3 +74,14 @@ fun View.throttleClick(
         block()
     }.launchIn(CoroutineScope(Dispatchers.Main))
 }
+
+//另一种防抖,缺点，占用了isEnabled
+inline fun View.clickOnce(
+    time: Long = 300, crossinline block: () -> Unit
+) {
+    setOnClickListener {
+        isEnabled = false
+        block()
+        postDelayed({ isEnabled = true }, time)
+    }
+}

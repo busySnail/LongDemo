@@ -3,16 +3,18 @@ package cn.com.longdemo.stocks.test
 import android.text.TextUtils
 import cn.com.longdemo.base.Resource
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import org.json.JSONObject
 
 
 class StocksRepositoryImpl : StocksRepository {
 
-    override suspend fun fetchNewStock(date: String): Flow<Resource<List<NewStock>>> {
+    override suspend fun fetchNewStock(dateParam: String): Flow<Resource<List<NewStock>>> {
         return flow {
             try {
-                val response = NetworkManager.stocksService.fetchNewStockList(date)
+                val response = NetworkManager.stocksService.fetchNewStockList(dateParam)
                 val newStockList = getJRSGStockList(response.body().toString())
                 emit(Resource.Success(newStockList))
             } catch (e: Exception) {
@@ -20,6 +22,7 @@ class StocksRepositoryImpl : StocksRepository {
             }
         }
     }
+
 
 
     /**
