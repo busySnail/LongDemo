@@ -96,8 +96,15 @@ class CoroutineTestFragment : Fragment() {
         binding.btnCallbackToFlow.throttleClick {
 
             lifecycleScope.launch {
-                asFlowGetName().collect {
-                    Log.d("TestML", "asFlowGetName: it: $it")
+//                asFlowGetName().collect {
+//                    Log.d("TestML", "asFlowGetName:11 it: $it")
+//                }
+
+                PersonManager.getInstance("bob").eat()
+
+                getNameAsFlow().collect {
+                    Log.d("TestML", "asFlowGetName:22 it: $it")
+
                 }
             }
 
@@ -119,6 +126,13 @@ class CoroutineTestFragment : Fragment() {
         thread(start = true) {
             Thread.sleep(3000)
             callback.onGet("bob")
+        }
+    }
+
+    private fun getNameAsFlow(): Flow<String> {
+        return flow {
+            delay(3000)
+            emit("bob")
         }
     }
 
