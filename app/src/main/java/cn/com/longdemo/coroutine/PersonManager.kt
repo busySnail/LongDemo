@@ -11,7 +11,4 @@ class PersonManager private constructor(name: String) {
     fun eat(){
 
     }
-
-
-
 }

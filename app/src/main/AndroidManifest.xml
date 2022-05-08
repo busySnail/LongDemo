@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LongDemo">
         <activity
+            android:name=".kt_test.KtTestActivity"
+            android:exported="false" />
+        <activity
             android:name=".coroutine.CoroutineTestActivity"
             android:exported="false"
             android:label="@string/title_activity_coroutine_test"
