@@ -9,10 +9,14 @@
       <map>
         <entry key="../../../../../../../layout/compose-model-1646200038353.xml" value="0.8989169675090253" />
         <entry key="../../../../../../../layout/compose-model-1650022335349.xml" value="0.8700361010830325" />
+        <entry key="../../../../../layout/compose-model-1658914828931.xml" value="0.6967509025270758" />
+        <entry key="app/src/main/res/drawable/bg_radius_8dp.xml" value="0.119" />
         <entry key="app/src/main/res/layout-w1240dp/activity_flow_test.xml" value="0.1" />
         <entry key="app/src/main/res/layout-w1240dp/content_flow_test.xml" value="0.11085219707057258" />
         <entry key="app/src/main/res/layout/activity_flow_test.xml" value="0.1734375" />
         <entry key="app/src/main/res/layout/activity_kt_test.xml" value="0.15572916666666667" />
+        <entry key="app/src/main/res/layout/activity_live_data_second_test.xml" value="0.2109375" />
+        <entry key="app/src/main/res/layout/activity_live_data_test.xml" value="0.2109375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_native_test.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_new_stock.xml" value="0.1" />
@@ -26,6 +30,7 @@
         <entry key="app/src/main/res/layout/js_test_activity.xml" value="0.14479166666666668" />
         <entry key="app/src/main/res/layout/nav_header_flow_test.xml" value="0.15208333333333332" />
         <entry key="app/src/main/res/layout/stock_list_item.xml" value="0.15729166666666666" />
+        <entry key="app/src/main/res/layout/test_dialog_fragment.xml" value="0.22447916666666667" />
         <entry key="app/src/main/res/layout/view_holder_main.xml" value="0.13229166666666667" />
         <entry key="app/src/main/res/menu/bottom_navigation.xml" value="0.15208333333333332" />
         <entry key="app/src/main/res/menu/navigation_drawer.xml" value="0.1" />

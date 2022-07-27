@@ -111,6 +111,9 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
 
+    implementation("io.coil-kt:coil:2.1.0")
+
+
     implementation Kotlin.kotlin_stdlib
     implementation Kotlin.kotlin_reflect
 
@@ -118,11 +121,11 @@ dependencies {
     implementation Retrofit.gson
     implementation Retrofit.logging
 
-    implementation Compose.ui
-    implementation Compose.material
-    implementation Compose.ui_tooling_preview
-    implementation Compose.ui_test_junit4
-    implementation Compose.ui_tooling
+//    implementation Compose.ui
+//    implementation Compose.material
+//    implementation Compose.ui_tooling_preview
+//    implementation Compose.ui_test_junit4
+//    implementation Compose.ui_tooling
 
     //  Compose.ui_tooling_preview
 
