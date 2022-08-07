@@ -1,5 +1,6 @@
 package cn.com.longdemo.kt_test
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -13,7 +14,9 @@ import coil.transform.CircleCropTransformation
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
-class KtTestActivity : AppCompatActivity() {
+class KtTestActivity : AppCompatActivity(),
+    AnalyticsLogger by AnalyticsLoggerImpl(),
+    DeepLinkHelper by DeepLinkHelperImpl() {
 
     private val ivImage by bindView<ImageView>(R.id.iv_test)
     private val btnLoadImage by bindView<Button>(R.id.btn_load_img)
@@ -22,6 +25,8 @@ class KtTestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kt_test)
+
+        registerLifecycleOwner(this)
 
         val textview = findViewById<TextView>(R.id.tv_delegate_test)
 
@@ -45,6 +50,11 @@ class KtTestActivity : AppCompatActivity() {
         }
     }
 
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        handleDeepLink(this, intent)
+    }
+
     private operator fun TextView.provideDelegate(value: Any?, property: KProperty<*>) =
         object : ReadWriteProperty<Any?, String?> {
             override fun getValue(thisRef: Any?, property: KProperty<*>): String? {
@@ -56,4 +66,12 @@ class KtTestActivity : AppCompatActivity() {
             }
 
         }
+
 }
+
+
+
+
+
+
+
